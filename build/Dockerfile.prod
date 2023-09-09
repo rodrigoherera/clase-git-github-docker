@@ -1,0 +1,17 @@
+FROM node:18 as build
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm ci --only=production
+
+COPY . .
+
+FROM gcr.io/distroless/nodejs:18
+
+COPY --from=build /app /app
+
+WORKDIR /app
+
+CMD ["index.js"]
