@@ -21,12 +21,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Setup up DB credentials
-      run: |
-        echo "DB_HOST=${{ secrets.DB_HOST }}" >> $GITHUB_ENV
-        echo "DB_USER=${{ secrets.DB_USER }}" >> $GITHUB_ENV
-        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
-        echo "DB_DATABASE=${{ secrets.DB_DATABASE }}" >> $GITHUB_ENV
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
