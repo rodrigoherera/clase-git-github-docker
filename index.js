@@ -21,6 +21,7 @@ connection.connect();
 
 app.get("/health", (req, res) => {
   res.send("API is running");
+  console.log("is running")
 });
 
 app.get("/users", (_, res) => {
