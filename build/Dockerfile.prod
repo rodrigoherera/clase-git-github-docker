@@ -24,14 +24,14 @@ COPY . .
 # Final stage
 FROM gcr.io/distroless/nodejs:18
 
+# Copy app from build stage
+COPY --from=build /app /app
+
 # Copy environment variables from build stage
 ENV DB_HOST=$DB_HOST
 ENV DB_USER=$DB_USER
 ENV DB_PASSWORD=$DB_PASSWORD
 ENV DB_DATABASE=$DB_DATABASE
-
-# Copy app from build stage
-COPY --from=build /app /app
 
 WORKDIR /app
 
