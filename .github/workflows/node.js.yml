@@ -59,4 +59,19 @@ jobs:
           push: true
           tags: rodrigoherera/clase-git-github-docker:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
-
+  deploy:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: push_to_registry
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        script: |
+          whoami
+          ls -al
