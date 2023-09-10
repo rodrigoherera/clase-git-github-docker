@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  node:
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile.prod
+    ports:
+      - '3000:3000'
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_DATABASE=${DB_DATABASE}
