@@ -52,7 +52,7 @@ jobs:
           context: .
           file: ./build/Dockerfile.prod
           push: true
-          tags: rodrigoherera/clase-git-github-docker:${{ github.sha }}
+          tags: ${{ github.repository }}:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             DB_HOST=${{ secrets.DB_HOST }}
