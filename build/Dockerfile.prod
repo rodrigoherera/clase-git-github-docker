@@ -1,5 +1,5 @@
 # First stage: Build
-FROM node:18 as build
+FROM node:18.17.1 as build
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ RUN npm ci --only=production
 COPY index.js ./
 
 # Second stage: Run
-FROM gcr.io/distroless/nodejs:18
+FROM gcr.io/distroless/nodejs:18.17.1
 
 # Group ARGs and ENVs
 ARG DB_HOST DB_USER DB_PASSWORD DB_DATABASE
