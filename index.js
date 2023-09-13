@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 connection.connect();
 
 app.get("/health", (req, res) => {
-  res.send("API is running");
+  res.send("API is running for class");
   console.log("is running")
 });
 
