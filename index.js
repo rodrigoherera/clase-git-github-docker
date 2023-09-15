@@ -19,9 +19,8 @@ const connection = mysql.createConnection({
 app.use(bodyParser.json());
 connection.connect();
 
-app.get("/health", (req, res) => {
+app.get("/", (req, res) => {
   res.send("API is running");
-  console.log("is running")
 });
 
 app.get("/users", (_, res) => {
