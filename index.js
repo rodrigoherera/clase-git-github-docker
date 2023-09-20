@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 connection.connect();
 
 app.get("/", (req, res) => {
-  res.send("API is running");
+  res.send("API is runnings");
 });
 
 app.get("/users", (_, res) => {
